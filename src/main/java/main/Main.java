@@ -1,28 +1,50 @@
 package main;
 
 import entity.SimpleArray;
+import factory.impl.SimpleArrayFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import service.SimpleArrayServices;
+import parser.impl.StringToIntParser;
+import reader.impl.CustomReader;
+import service.SortingServices;
+import service.impl.SimpleArrayServices;
 
-import java.util.ArrayList;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.IntUnaryOperator;
 
 public class Main {
-    final static Logger logger = LogManager.getLogger();
+    static final Logger logger = LogManager.getLogger();
+    static final String FILE_SRC = "src\\main\\resources\\data.txt";
+
 
     public static void main(String[] args) {
-        SimpleArray arr = new SimpleArray(3., 54.5, 35., -4.);
+        CustomReader reader = new CustomReader();
+        List<String> readerResult = reader.ReadFromFile(FILE_SRC);
+        StringToIntParser parser = new StringToIntParser();
+        List<Integer> parserResult = parser.Parse(readerResult);
+
+        SimpleArrayFactory factory = new SimpleArrayFactory();
+        SimpleArray arr2 = factory.GetSimpleArray(10, 15, 25, 4, 1, 455, -3, -100);
+        SimpleArray arr = factory.GetSimpleArray(parserResult);
+        logger.info(arr2.equals(arr));
+
         SimpleArrayServices services = new SimpleArrayServices();
-        Function<Double, Double> testFunction = d -> {
+        Optional<Double> result = services.FindAverage(arr);
+        result.ifPresent(logger::info);
+        IntUnaryOperator testFunction = d -> {
             if (d < 0) {
                 return -d;
             }
-            return d * 0.5;
+            return d * 2;
         };
-        services.ReplaceByCondition(arr, testFunction);
+        int[] replacingResult = services.ReplaceByCondition(arr, testFunction);
+        logger.info(Arrays.toString(replacingResult));
         logger.info(arr.toString());
+
+        SortingServices sorting = new service.impl.SortingServices();
+        int[] sortingResult = sorting.SelectionSort(arr);
+        logger.info(Arrays.toString(sortingResult));
     }
 }

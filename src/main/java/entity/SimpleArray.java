@@ -1,40 +1,44 @@
 package entity;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 public class SimpleArray {
-    private ArrayList<Double> array;
+    final Logger logger = LogManager.getLogger();
+    private int[] array;
 
-    public ArrayList<Double> getArray() {
-        return array;
+    public int[] getArray() {
+        return Arrays.copyOf(array, array.length);
     }
 
-    public void setArray(ArrayList<Double> array) {
-        this.array = array;
+    public void setArray(int[] array) {
+        if (array != null) {
+            this.array = Arrays.copyOf(array, array.length);
+        }
+        else {
+            logger.warn("Null pointer");
+        }
     }
 
-    public SimpleArray() {
-        array = new ArrayList<>(1);
-    }
-
-    public SimpleArray(List<Double> list) {
-        array = new ArrayList<>(1);
-        array = (ArrayList<Double>)list;
-    }
-
-    public SimpleArray(Double... numbers) {
-        array = new ArrayList<>(numbers.length);
-        for(Double number: numbers) {
-            array.add(number);
+    public SimpleArray(int... array) {
+        if (array != null) {
+            this.array = Arrays.copyOf(array, array.length);
+        }
+        else {
+            this.array = new int[0];
+            logger.warn("Null pointer");
         }
     }
 
     @Override
     public String toString() {
         return "SimpleArray{" +
-                "array=" + array +
+                "array=" + Arrays.toString(array) +
                 '}';
     }
 
@@ -43,9 +47,9 @@ public class SimpleArray {
         if (this == o) return true;
         if (!(o instanceof SimpleArray)) return false;
         SimpleArray that = (SimpleArray) o;
-        if (that.array.size() != array.size()) return false;
-        for (int i = 0; i < array.size(); i++) {
-            if(that.array.get(i)!=array.get(i)) {
+        if (that.getArray().length != this.getArray().length) return false;
+        for (int i = 0; i < this.array.length; i++) {
+            if(that.getArray()[i]!=this.getArray()[i]) {
                 return false;
             }
         }
@@ -56,7 +60,7 @@ public class SimpleArray {
     public int hashCode() {
         final int HASH = 4;
         int result = 0;
-        for(Double number: array) {
+        for(int number: array) {
             result+=number*HASH;
         }
         return result;
