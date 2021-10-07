@@ -16,7 +16,6 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
 
     public OptionalInt FindMax(SimpleArray array) {
         if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
             return OptionalInt.empty();
         }
         int result = array.getArray()[0];
@@ -29,15 +28,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
     }
 
     public OptionalInt FindMaxStream(SimpleArray array) {
-        if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
-        }
         return Arrays.stream(array.getArray()).max();
     }
 
     public OptionalInt FindMin(SimpleArray array) {
         if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
             return OptionalInt.empty();
         }
         int result = array.getArray()[0];
@@ -50,15 +45,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
     }
 
     public OptionalInt FindMinStream(SimpleArray array) {
-        if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
-        }
         return Arrays.stream(array.getArray()).min();
     }
 
     public OptionalDouble FindAverage(SimpleArray array) {
         if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
             return OptionalDouble.empty();
         }
         double arrayLength = array.getArray().length;
@@ -70,15 +61,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
     }
 
     public OptionalDouble FindAverageStream(SimpleArray array) {
-        if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
-        }
         return Arrays.stream(array.getArray()).average();
     }
 
     public OptionalInt FindSum(SimpleArray array) {
         if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
             return OptionalInt.empty();
         }
         int sum = 0;
@@ -90,7 +77,6 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
 
     public OptionalInt FindSumStream(SimpleArray array) {
         if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
             return OptionalInt.empty();
         }
         return OptionalInt.of(Arrays.stream(array.getArray()).sum());
@@ -126,7 +112,6 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
 
     public int[] ReplaceByCondition(SimpleArray array, IntUnaryOperator func) {
         if (array.getArray().length == 0) {
-            logger.warn("Zero elements in array");
             return new int[0];
         }
         IntStream stream = Arrays.stream(array.getArray());
