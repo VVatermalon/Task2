@@ -4,10 +4,10 @@ import entity.SimpleArray;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import service.impl.SortingServices;
+import service.impl.SortingServicesImpl;
 
 public class SortingTest extends Assert {
-    final SortingServices SERVICES = new SortingServices();
+    final SortingServicesImpl SERVICES = new SortingServicesImpl();
     @DataProvider
     public Object[][] SortingInput() {
         return new Object[][] {

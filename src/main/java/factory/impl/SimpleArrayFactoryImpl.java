@@ -5,7 +5,7 @@ import factory.SimpleFactory;
 
 import java.util.List;
 
-public class SimpleArrayFactory implements SimpleFactory {
+public class SimpleArrayFactoryImpl implements SimpleFactory {
     public SimpleArray GetSimpleArray(int... array) {
         return new SimpleArray(array);
     }

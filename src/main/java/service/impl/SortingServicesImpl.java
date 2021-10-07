@@ -4,7 +4,7 @@ import entity.SimpleArray;
 
 import java.util.Arrays;
 
-public class SortingServices implements service.SortingServices {
+public class SortingServicesImpl implements service.SortingServices {
     public int[] BubbleSort(SimpleArray array) {
         int[] intArray = array.getArray();
         if(intArray.length < 2) {
@@ -23,6 +23,14 @@ public class SortingServices implements service.SortingServices {
             }
         }
         return intArray;
+    }
+
+    public int[] SortStream(SimpleArray array) {
+        int[] intArray = array.getArray();
+        if(intArray.length < 2) {
+            return intArray;
+        }
+        return Arrays.stream(intArray).sorted().toArray();
     }
 
     public int[] ShakerSort(SimpleArray array) {
