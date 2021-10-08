@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CustomReaderImpl implements reader.CustomReader {
-    final Logger logger = LogManager.getLogger();
+    static final Logger logger = LogManager.getLogger();
 
     public List<String> ReadFromFile(String src) {
         try {

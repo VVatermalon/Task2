@@ -1,18 +1,14 @@
 package service.impl;
 
 import entity.SimpleArray;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
-import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.function.*;
 import java.util.stream.IntStream;
 
 public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
-    final Logger logger = LogManager.getLogger();
 
     public OptionalInt FindMax(SimpleArray array) {
         if (array.getArray().length == 0) {

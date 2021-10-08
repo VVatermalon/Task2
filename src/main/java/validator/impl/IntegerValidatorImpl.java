@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class IntegerValidatorImpl implements validator.IntegerValidator {
-    final static String REGEX_INTEGER = "^([+-]?\\d+)$";
+    static final String REGEX_INTEGER = "^([+-]?\\d+)$";
 
     public boolean Validate(String input) {
         Pattern pattern = Pattern.compile(REGEX_INTEGER);
