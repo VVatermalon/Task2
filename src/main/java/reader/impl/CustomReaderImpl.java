@@ -14,18 +14,22 @@ import java.util.stream.Collectors;
 
 public class CustomReaderImpl implements reader.CustomReader {
     final Logger logger = LogManager.getLogger();
+
     public List<String> ReadFromFile(String src) {
         try {
-            if (src != null) {
-                ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-                URL resource = classLoader.getResource(src);
+            if (src == null) {
+                logger.error("Null parameter");
+                return new ArrayList<>(0);
+            }
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            URL resource = classLoader.getResource(src);
+            if (resource != null) {
                 return Files.lines(Paths.get(resource.toURI())).collect(Collectors.toList());
             } else {
                 logger.error("Null parameter");
                 return new ArrayList<>(0);
             }
-        }
-        catch(IOException | URISyntaxException | NullPointerException e) {
+        } catch (IOException | URISyntaxException e) {
             logger.error(e);
             return new ArrayList<>(0);
         }
