@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
 
-    public OptionalInt FindMax(SimpleArray array) {
+    public OptionalInt findMax(SimpleArray array) {
         if (array.getArray().length == 0) {
             return OptionalInt.empty();
         }
@@ -23,11 +23,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
         return OptionalInt.of(result);
     }
 
-    public OptionalInt FindMaxStream(SimpleArray array) {
+    public OptionalInt findMaxStream(SimpleArray array) {
         return Arrays.stream(array.getArray()).max();
     }
 
-    public OptionalInt FindMin(SimpleArray array) {
+    public OptionalInt findMin(SimpleArray array) {
         if (array.getArray().length == 0) {
             return OptionalInt.empty();
         }
@@ -40,11 +40,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
         return OptionalInt.of(result);
     }
 
-    public OptionalInt FindMinStream(SimpleArray array) {
+    public OptionalInt findMinStream(SimpleArray array) {
         return Arrays.stream(array.getArray()).min();
     }
 
-    public OptionalDouble FindAverage(SimpleArray array) {
+    public OptionalDouble findAverage(SimpleArray array) {
         if (array.getArray().length == 0) {
             return OptionalDouble.empty();
         }
@@ -56,11 +56,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
         return OptionalDouble.of(sum / arrayLength);
     }
 
-    public OptionalDouble FindAverageStream(SimpleArray array) {
+    public OptionalDouble findAverageStream(SimpleArray array) {
         return Arrays.stream(array.getArray()).average();
     }
 
-    public OptionalInt FindSum(SimpleArray array) {
+    public OptionalInt findSum(SimpleArray array) {
         if (array.getArray().length == 0) {
             return OptionalInt.empty();
         }
@@ -71,14 +71,14 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
         return OptionalInt.of(sum);
     }
 
-    public OptionalInt FindSumStream(SimpleArray array) {
+    public OptionalInt findSumStream(SimpleArray array) {
         if (array.getArray().length == 0) {
             return OptionalInt.empty();
         }
         return OptionalInt.of(Arrays.stream(array.getArray()).sum());
     }
 
-    public int FindNegativeCount(SimpleArray array) {
+    public int findNegativeCount(SimpleArray array) {
         int count = 0;
         for (int val : array.getArray()) {
             if (val < 0) {
@@ -88,11 +88,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
         return count;
     }
 
-    public int FindNegativeCountStream(SimpleArray array) {
+    public int findNegativeCountStream(SimpleArray array) {
         return (int) Arrays.stream(array.getArray()).filter(i -> i < 0).count();
     }
 
-    public int FindPositiveCount(SimpleArray array) {
+    public int findPositiveCount(SimpleArray array) {
         int count = 0;
         for (int val : array.getArray()) {
             if (val > 0) {
@@ -102,11 +102,11 @@ public class SimpleArrayServicesImpl implements service.SimpleArrayServices {
         return count;
     }
 
-    public int FindPositiveCountStream(SimpleArray array) {
+    public int findPositiveCountStream(SimpleArray array) {
         return (int) Arrays.stream(array.getArray()).filter(i -> i > 0).count();
     }
 
-    public int[] ReplaceByCondition(SimpleArray array, IntUnaryOperator func) {
+    public int[] replaceByCondition(SimpleArray array, IntUnaryOperator func) {
         if (array.getArray().length == 0) {
             return new int[0];
         }

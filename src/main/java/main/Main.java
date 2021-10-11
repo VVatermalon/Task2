@@ -22,17 +22,17 @@ public class Main {
 
     public static void main(String[] args) {
         CustomReaderImpl reader = new CustomReaderImpl();
-        List<String> readerResult = reader.ReadFromFile(FILE_SRC);
+        List<String> readerResult = reader.readFromFile(FILE_SRC);
         StringToIntParserImpl parser = new StringToIntParserImpl();
-        List<Integer> parserResult = parser.Parse(readerResult);
+        List<Integer> parserResult = parser.parse(readerResult);
 
         SimpleArrayFactoryImpl factory = new SimpleArrayFactoryImpl();
-        SimpleArray arr2 = factory.GetSimpleArray(10, 15, 25, 4, 1, 455, -3, -100);
-        SimpleArray arr = factory.GetSimpleArray(parserResult);
+        SimpleArray arr2 = factory.createSimpleArray(10, 15, 25, 4, 1, 455, -3, -100);
+        SimpleArray arr = factory.createSimpleArray(parserResult);
         logger.info(arr2.equals(arr));
 
         SimpleArrayServicesImpl services = new SimpleArrayServicesImpl();
-        OptionalDouble result = services.FindAverage(arr);
+        OptionalDouble result = services.findAverage(arr);
         result.ifPresent(logger::info);
         IntUnaryOperator testFunction = d -> {
             if (d < 0) {
@@ -40,12 +40,12 @@ public class Main {
             }
             return d * 2;
         };
-        int[] replacingResult = services.ReplaceByCondition(arr, testFunction);
+        int[] replacingResult = services.replaceByCondition(arr, testFunction);
         logger.info(Arrays.toString(replacingResult));
         logger.info(arr.toString());
 
         SortingServices sorting = new SortingServicesImpl();
-        int[] sortingResult = sorting.SelectionSort(arr);
+        int[] sortingResult = sorting.selectionSort(arr);
         logger.info(Arrays.toString(sortingResult));
     }
 }

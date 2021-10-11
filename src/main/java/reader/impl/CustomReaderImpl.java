@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class CustomReaderImpl implements reader.CustomReader {
     static final Logger logger = LogManager.getLogger();
 
-    public List<String> ReadFromFile(String src) {
+    public List<String> readFromFile(String src) {
         try {
             if (src == null) {
                 logger.error("Null parameter");

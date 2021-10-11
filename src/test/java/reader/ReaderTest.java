@@ -4,7 +4,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import reader.impl.CustomReaderImpl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import static org.testng.Assert.*;
 public class ReaderTest {
 
     @DataProvider
-    public Object[][] ReaderInput() {
+    public Object[][] readerInput() {
         return new Object[][]{
                 {"dataTest.txt", new String[]{"-15 16 27 р43   76 101", "2о -1 0 0 4"}},
                 {"emptyTest.txt", new String[0]},
@@ -22,10 +21,10 @@ public class ReaderTest {
         };
     }
 
-    @Test(dataProvider = "ReaderInput")
-    public void ReadFromFileTest(String src, String[] expectedArray) {
+    @Test(dataProvider = "readerInput")
+    public void readFromFileTest(String src, String[] expectedArray) {
         CustomReaderImpl reader = new CustomReaderImpl();
-        List<String> actual = reader.ReadFromFile(src);
+        List<String> actual = reader.readFromFile(src);
         List<String> expected = Arrays.asList(expectedArray);
         assertEquals(actual, expected);
     }

@@ -5,7 +5,7 @@ import entity.SimpleArray;
 import java.util.Arrays;
 
 public class SortingServicesImpl implements service.SortingServices {
-    public int[] BubbleSort(SimpleArray array) {
+    public int[] bubbleSort(SimpleArray array) {
         int[] intArray = array.getArray();
         if(intArray.length < 2) {
             return intArray;
@@ -25,7 +25,7 @@ public class SortingServicesImpl implements service.SortingServices {
         return intArray;
     }
 
-    public int[] SortStream(SimpleArray array) {
+    public int[] sortStream(SimpleArray array) {
         int[] intArray = array.getArray();
         if(intArray.length < 2) {
             return intArray;
@@ -33,7 +33,7 @@ public class SortingServicesImpl implements service.SortingServices {
         return Arrays.stream(intArray).sorted().toArray();
     }
 
-    public int[] ShakerSort(SimpleArray array) {
+    public int[] shakerSort(SimpleArray array) {
         int[] intArray = array.getArray();
         if (intArray.length < 2) {
             return intArray;
@@ -68,7 +68,7 @@ public class SortingServicesImpl implements service.SortingServices {
         return intArray;
     }
 
-    public int[] SelectionSort(SimpleArray array) {
+    public int[] selectionSort(SimpleArray array) {
         int[] intArray = array.getArray();
         if (intArray.length < 2) {
             return intArray;

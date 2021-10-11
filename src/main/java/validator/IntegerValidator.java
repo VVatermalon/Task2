@@ -1,5 +1,5 @@
 package validator;
 
 public interface IntegerValidator {
-    boolean Validate(String input);
+    boolean validate(String input);
 }

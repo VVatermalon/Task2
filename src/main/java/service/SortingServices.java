@@ -3,8 +3,8 @@ package service;
 import entity.SimpleArray;
 
 public interface SortingServices {
-    int[] BubbleSort(SimpleArray array);
-    int[] SortStream(SimpleArray array);
-    int[] ShakerSort(SimpleArray array);
-    int[] SelectionSort(SimpleArray array);
+    int[] bubbleSort(SimpleArray array);
+    int[] sortStream(SimpleArray array);
+    int[] shakerSort(SimpleArray array);
+    int[] selectionSort(SimpleArray array);
 }

@@ -8,17 +8,17 @@ import java.util.OptionalInt;
 import java.util.function.IntUnaryOperator;
 
 public interface SimpleArrayServices {
-    OptionalInt FindMax(SimpleArray array);
-    OptionalInt FindMaxStream(SimpleArray array);
-    OptionalInt FindMin(SimpleArray array);
-    OptionalInt FindMinStream(SimpleArray array);
-    OptionalDouble FindAverage(SimpleArray array);
-    OptionalDouble FindAverageStream(SimpleArray array);
-    OptionalInt FindSum(SimpleArray array);
-    OptionalInt FindSumStream(SimpleArray array);
-    int FindNegativeCount(SimpleArray array);
-    int FindNegativeCountStream(SimpleArray array);
-    int FindPositiveCount(SimpleArray array);
-    int FindPositiveCountStream(SimpleArray array);
-    int[] ReplaceByCondition(SimpleArray array, IntUnaryOperator func);
+    OptionalInt findMax(SimpleArray array);
+    OptionalInt findMaxStream(SimpleArray array);
+    OptionalInt findMin(SimpleArray array);
+    OptionalInt findMinStream(SimpleArray array);
+    OptionalDouble findAverage(SimpleArray array);
+    OptionalDouble findAverageStream(SimpleArray array);
+    OptionalInt findSum(SimpleArray array);
+    OptionalInt findSumStream(SimpleArray array);
+    int findNegativeCount(SimpleArray array);
+    int findNegativeCountStream(SimpleArray array);
+    int findPositiveCount(SimpleArray array);
+    int findPositiveCountStream(SimpleArray array);
+    int[] replaceByCondition(SimpleArray array, IntUnaryOperator func);
 }
